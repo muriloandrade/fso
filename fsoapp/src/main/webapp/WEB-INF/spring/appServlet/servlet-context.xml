@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- Contexto do DispatcherServlet: define esta infraestrutura de processamento 
+		de requests do servlet -->
+
+	<!-- Habilita o modelo de programação @Controller do Spring MVC -->
+	<annotation-driven />
+
+	<!-- Lida com os requests HTTP GET para /resources/** servindo de forma 
+		eficiente recursos estáticos do diretório ${webappRoot}/resources -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolve views selecionadas pelos @Controllers para renderizar em recursos 
+		.jsp no diretório /WEB-INF/views -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- Configurações do SGBD -->
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<beans:property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver" />
+
+		<!-- Acesso -->
+		<beans:property name="url"
+			value="jdbc:db2://192.86.32.159:5035/DALLASB" />
+		<beans:property name="username" value="Z02351" />
+		<beans:property name="password" value="Q1E3W2R4" />
+
+	</beans:bean>
+
+	<!-- Definição do bean do Hibernate 4 SessionFactory -->
+	<beans:bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="annotatedClasses">
+			<beans:list>
+				<beans:value>mtm2017.fsoapp.model.Costumer</beans:value>
+				<beans:value>mtm2017.fsoapp.model.Order</beans:value>
+				<beans:value>mtm2017.fsoapp.model.OrderItem</beans:value>
+				<beans:value>mtm2017.fsoapp.model.Product</beans:value>
+			</beans:list>
+		</beans:property>
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.DB2Dialect
+				</beans:prop>
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+	<!-- Beans dos modelos da aplicação -->
+	<beans:bean id="costumerDAO" class="mtm2017.fsoapp.dao.CostumerDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="costumerService" class="mtm2017.fsoapp.service.CostumerServiceImpl">
+		<beans:property name="costumerDAO" ref="costumerDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="productDAO" class="mtm2017.fsoapp.dao.ProductDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="productService" class="mtm2017.fsoapp.service.ProductServiceImpl">
+		<beans:property name="productDAO" ref="productDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="orderDAO" class="mtm2017.fsoapp.dao.OrderDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="orderService" class="mtm2017.fsoapp.service.OrderServiceImpl">
+		<beans:property name="orderDAO" ref="orderDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="orderItemDAO" class="mtm2017.fsoapp.dao.OrderItemDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="orderItemService" class="mtm2017.fsoapp.service.OrderItemServiceImpl">
+		<beans:property name="orderItemDAO" ref="orderItemDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+	<context:component-scan base-package="mtm2017.fsoapp" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+</beans:beans>
