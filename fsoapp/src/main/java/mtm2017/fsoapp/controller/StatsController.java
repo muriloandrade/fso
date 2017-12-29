@@ -66,7 +66,7 @@ public class StatsController {
 		String return_page = "";
 
 		String qt_days = request.getParameter("d");
-		if (StringUtils.isNumeric(qt_days)
+		if (qt_days != null && StringUtils.isNumeric(qt_days)
 				&& (qt_days.equals("30") || qt_days.equals("90") || qt_days.equals("180") || qt_days.equals("360"))) {
 			List<ProdRanking> prodRanking = this.productService.getProdRanking(Integer.valueOf(qt_days));
 
@@ -119,7 +119,7 @@ public class StatsController {
 		String return_page = "";
 
 		String qt_days = request.getParameter("d");
-		if (StringUtils.isNumeric(qt_days)
+		if (qt_days != null && StringUtils.isNumeric(qt_days)
 				&& (qt_days.equals("30") || qt_days.equals("90") || qt_days.equals("180") || qt_days.equals("360"))) {
 			List<ClientRanking> clientRanking = this.costumerService.getClientRanking(Integer.valueOf(qt_days));
 
@@ -169,7 +169,6 @@ public class StatsController {
 	@RequestMapping(value = "/stats/total")
 	public String total(Model model, HttpSession session, HttpServletRequest request, RedirectAttributes ra) {
 
-		String return_page = "";
 
 		OrdersTotal total30 = this.orderService.getOrdersTotal(30);
 		OrdersTotal total90 = this.orderService.getOrdersTotal(90);

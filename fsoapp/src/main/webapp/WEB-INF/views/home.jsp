@@ -36,7 +36,7 @@
 	</div>
 	<div class="row">
 		<!-- Client operations -->
-		<div class="chart col-lg-3 col-6" style="padding: 20px 15px">
+		<div class="chart col-xl-3 col-lg-6 col-md-6 col-sm-12 " style="padding: 20px 15px">
 			<div class="statistic d-flex align-items-center bg-white has-shadow">
 				<div class="icon" style="background: #33b35a">
 					<i class="icon-user"></i>
@@ -125,7 +125,7 @@
 			</div>
 		</div>
 		<!-- Product operations -->
-		<div class="chart col-lg-3 col-6" style="padding: 20px 15px">
+		<div class="chart col-xl-3 col-lg-6 col-md-6 col-sm-12 " style="padding: 20px 15px">
 			<div class="statistic d-flex align-items-center bg-white has-shadow">
 				<div class="icon" style="background: #33b35a">
 					<i class="icon-pencil-case"></i>
@@ -211,7 +211,7 @@
 			</div>
 		</div>
 		<!-- Order operations -->
-		<div class="chart col-lg-3 col-6" style="padding: 20px 15px">
+		<div class="chart col-xl-3 col-lg-6 col-md-6 col-sm-12 " style="padding: 20px 15px">
 			<div class="statistic d-flex align-items-center bg-white has-shadow">
 				<div class="icon" style="background: #33b35a">
 					<i class="icon-form"></i>
@@ -335,7 +335,7 @@
 			</div>
 		</div>
 		<!-- Statistics -->
-		<div class="chart col-lg-3 col-6" style="padding: 20px 15px">
+		<div class="chart col-xl-3 col-lg-6 col-md-6 col-sm-12" style="padding: 20px 15px">
 			<div class="statistic d-flex align-items-center bg-white has-shadow">
 				<div class="icon" style="background: #33b35a">
 					<i class="icon-line-chart"></i>

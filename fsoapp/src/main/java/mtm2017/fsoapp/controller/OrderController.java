@@ -76,12 +76,14 @@ public class OrderController {
 		String return_page = "";
 
 		Costumer c = new Costumer();
-		String CID_string = request.getParameter("cid").toUpperCase();
+		String CID_string = request.getParameter("cid");
 
-		if (StringUtils.isNumeric(CID_string)) {
+		if (CID_string != null && StringUtils.isNumeric(CID_string)) {
+			
+			CID_string.toUpperCase();
 			Integer CID = Integer.valueOf(CID_string);
 			c.setCID(CID);
-
+			
 			Costumer costumer = this.costumerService.getCostumer(c);
 
 			if (costumer == null) {
@@ -101,6 +103,7 @@ public class OrderController {
 				return_page = "order_list";
 			}
 		} else {
+			if (CID_string == null) CID_string = "";
 			ra.addFlashAttribute("msgRetornoTipo", "warning");
 			ra.addFlashAttribute("msgRetorno", "Client " + CID_string + " not found.");
 
