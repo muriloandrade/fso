@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="page_header.jsp" />
 
 <!-- Page Header -->
@@ -20,6 +21,11 @@
 		<li class="breadcrumb-item active">List Orders By Client</li>
 	</ul>
 </div>
+
+<!-- Exibe mensagem se houver -->
+<c:if test="${msgRetorno ne null and not msgRetorno.isEmpty()}">
+	<div class='alert alert-${msgRetornoTipo}'>${msgRetorno}</div>
+</c:if>
 
 <section class="tables">
 	<div class="container-fluid">
@@ -44,7 +50,9 @@
 									<th></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody>									
+								<c:if test="${fn:length(ordersList) == 0 }" ><tr><td colspan="7"><div style="margin-top: 30px">No orders found for this client</div></td></tr></c:if>	
+								<c:if test="${fn:length(ordersList) > 0 }" >							
 								<c:forEach items="${ordersList}" var="order">
 									<tr>
 										<fmt:formatNumber type="number" pattern="000000"
@@ -61,6 +69,7 @@
 											href="order/lookup?oid=${order.OID}">Lookup</a></td>
 									</tr>
 								</c:forEach>
+								</c:if>
 							</tbody>
 						</table>
 					</div>

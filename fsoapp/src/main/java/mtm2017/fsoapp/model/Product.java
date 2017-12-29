@@ -28,16 +28,16 @@ public class Product implements Serializable
 	@Column(name = "SKU")
 	private String SKU;	
 	
-	private BigDecimal price;
-	private BigDecimal cost;
-	private BigDecimal codb;
-	private String dunit;
-	private String name;
+	private BigDecimal price = new BigDecimal(0.0);
+	private BigDecimal cost = new BigDecimal(0.0);
+	private BigDecimal codb = new BigDecimal(0.0);
+	private String dunit = "";
+	private String name = "";
 	
 
 	public String getSKU()
 	{
-		return SKU;
+		return SKU.trim();
 	}
 
 	public void setSKU(String sKU)
@@ -77,7 +77,7 @@ public class Product implements Serializable
 
 	public String getDunit()
 	{
-		return dunit;
+		return dunit.trim();
 	}
 
 	public void setDunit(String dunit)
@@ -87,7 +87,7 @@ public class Product implements Serializable
 
 	public String getName()
 	{
-		return name;
+		return name.trim();
 	}
 
 	public void setName(String name)

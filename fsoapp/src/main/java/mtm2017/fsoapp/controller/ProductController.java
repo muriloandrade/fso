@@ -223,7 +223,7 @@ public class ProductController {
 				ra.addFlashAttribute("msgRetornoTipo", msgRetornoTipo);
 				ra.addFlashAttribute("msgRetorno", msgRetorno);
 
-				return_page = "redirect:/home";
+				return_page = "redirect:/product/list";
 
 			} catch (DataIntegrityViolationException e) {
 				ra.addFlashAttribute("msgRetornoTipo", "warning");

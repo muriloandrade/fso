@@ -147,19 +147,23 @@ public class OrderController {
 		OrderItem oi = null;
 		Product p = null;
 		String sku = "";
+		BigDecimal price = new BigDecimal(0.0);
 		Integer quant = 0;
 
 		for (int i = 1; i <= 10; i++) {
 			sku = request.getParameter("sku_" + i).toUpperCase();
 			if (!sku.isEmpty()) {
 				quant = Integer.parseInt(request.getParameter("qty_" + i));
+				String price_str = request.getParameter("price_" + i).substring(2);
+				price = BigDecimal.valueOf(Double.valueOf(price_str));
 
 				p = new Product();
 				p.setSKU(sku);
 
 				oi = new OrderItem();
 				oi.setProduct(p);
-				oi.setQuant(quant);
+				oi.setPrice(price);
+				oi.setQuant(quant);				
 
 				orderItems.add(oi);
 			}
@@ -293,7 +297,7 @@ public class OrderController {
 		ra.addFlashAttribute("msgRetornoTipo", msgRetornoTipo);
 		ra.addFlashAttribute("msgRetorno", msgRetorno);
 
-		return "redirect:/order/lookup?oid=" + OID;
+		return "redirect:/order/list?cid=" + CID;
 	}
 
 }

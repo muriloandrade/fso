@@ -94,7 +94,7 @@ public class ProductDAOImpl implements ProductDAO
 		query_str.append("(");
 		query_str.append("  SELECT NAME,(QUANT * PRICE) AS SALES FROM ");
 		query_str.append("  (");
-		query_str.append("    SELECT Z02351.D02351.SKU,QUANT,PRICE,NAME ");
+		query_str.append("    SELECT Z02351.D02351.SKU,QUANT,Z02351.D02351.PRICE AS PRICE,NAME ");
 		query_str.append("    FROM Z02351.D02351,Z02351.C02351,Z02351.B02351");
 		query_str.append("    WHERE Z02351.D02351.SKU = Z02351.C02351.SKU ");
 		query_str.append("    AND Z02351.D02351.OID = Z02351.B02351.OID");

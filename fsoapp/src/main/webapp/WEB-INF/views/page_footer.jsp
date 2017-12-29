@@ -45,7 +45,6 @@
 	});
 </script>
 
-
 <!-- Adicionar itens ao pedido -->
 <script type="text/javascript">
 	faixasCount = 1;
@@ -102,7 +101,7 @@
 	};
 </script>
 
-<!-- Busca e exibe SKU -->
+<!-- Busca SKU e exibe produto -->
 <script type="text/javascript">
 	$('.sku_field').blur(
 			function() {
@@ -119,19 +118,18 @@
 						},
 						success : function(data) {
 
-							if (data.name != null) {
-								$('#output_' + index).show();
+							if (data.name) {
 								$('#output_' + index).val(data.name);
-								$('#qty_' + index).show();
-								$('#price_' + index).show();
 								var price = format_currency(data.price, '$');
 								$('#price_' + index).val(price);
+								$('#price_visible_' + index).val(price);
 								$('#qty_' + index).blur();
 								$('#qty_' + index).focus();
 
 							} else {
 								$("#output_" + index).val("");								
 								$("#price_" + index).val("$ 0.00");
+								$("#price_visible_" + index).val("$ 0.00");
 								$("#qty_" + index).val("0").blur();
 								$("#input_sku_" + index).val("").focus();
 								alert('Product ' + sku_get.toUpperCase()
@@ -145,6 +143,7 @@
 					{
 						$('#output_' + index).val("");
 						$("#price_" + index).val("$ 0.00");
+						$("#price_visible_" + index).val("$ 0.00");
 						$("#qty_" + index).val("0").blur();
 					}
 			});

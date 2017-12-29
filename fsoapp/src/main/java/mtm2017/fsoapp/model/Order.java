@@ -48,8 +48,8 @@ public class Order implements Serializable
 
 	private Date orderdate;
 	private Date shipdate;
-	private String orderstatus;
-	private BigDecimal total;
+	private String orderstatus = "PENDING";
+	private BigDecimal total = new BigDecimal(0.0);
 
 	public Integer getOID() {
 		return OID;

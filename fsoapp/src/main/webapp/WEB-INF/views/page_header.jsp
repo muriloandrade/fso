@@ -10,7 +10,7 @@
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>FSO - Flours, Sugars and Oils Co.</title>
@@ -35,7 +35,7 @@
 <!-- Custom stylesheet - for your changes-->
 <link rel="stylesheet" href="resources/css/custom.css">
 <!-- Favicon-->
-<link rel="shortcut icon" href="resources/img/favicon.ico">
+<link rel="shortcut icon" type="image/png" href="resources/img/favicon.png">
 
 <!-- DatePicker needs -->
 <link rel="stylesheet"

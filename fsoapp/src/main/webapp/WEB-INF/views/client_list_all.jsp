@@ -11,11 +11,6 @@
 	</div>
 </header>
 
-<!-- Exibe mensagem se houver -->
-<c:if test="${msgRetorno ne null and not msgRetorno.isEmpty()}">
-	<div class='alert alert-${msgRetornoTipo}'>${msgRetorno}</div>
-</c:if>
-
 <!-- Breadcrumb -->
 <div class="breadcrumb-holder container-fluid">
 	<ul class="breadcrumb">
@@ -23,6 +18,11 @@
 		<li class="breadcrumb-item active">List All Clients</li>
 	</ul>
 </div>
+
+<!-- Exibe mensagem se houver -->
+<c:if test="${msgRetorno ne null and not msgRetorno.isEmpty()}">
+	<div class='alert alert-${msgRetornoTipo}'>${msgRetorno}</div>
+</c:if>
 
 <section class="tables">
 	<div class="container-fluid">

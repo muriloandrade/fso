@@ -1,6 +1,7 @@
 package mtm2017.fsoapp.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,7 +43,8 @@ public class OrderItem implements Serializable
 	@JsonIgnore
 	private Product product;
 
-	private Integer quant;
+	private Integer quant = 0;
+	private BigDecimal price = new BigDecimal(0.0);
 
 	public Integer getOIID()
 	{
@@ -83,5 +85,14 @@ public class OrderItem implements Serializable
 	{
 		this.quant = quant;
 	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	
 
 }

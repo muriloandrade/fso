@@ -188,7 +188,7 @@ public class CostumerController {
 					ra.addFlashAttribute("msgRetornoTipo", msgRetornoTipo);
 					ra.addFlashAttribute("msgRetorno", msgRetorno);
 
-					return_page = "redirect:/home";
+					return_page = "redirect:/client/list";
 					
 					
 				} catch (DataIntegrityViolationException e) {

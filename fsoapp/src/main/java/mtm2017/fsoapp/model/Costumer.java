@@ -30,14 +30,14 @@ public class Costumer implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer CID;
 
-	private String client;
-	private String street;
-	private String city;
-	private String state;
-	private String card;
-	private String mo;
-	private String yr;
-	private String pan;
+	private String client = "";
+	private String street = "";
+	private String city = "";
+	private String state = "";
+	private String card = "";
+	private String mo = "";
+	private String yr = "";
+	private String pan = "";
 
 	@LazyCollection(LazyCollectionOption.TRUE)
 	@OneToMany(mappedBy = "costumer")
@@ -56,7 +56,7 @@ public class Costumer implements Serializable
 
 	public String getClient()
 	{
-		return client;
+		return client.trim();
 	}
 
 	public void setClient(String client)
@@ -66,7 +66,7 @@ public class Costumer implements Serializable
 
 	public String getStreet()
 	{
-		return street;
+		return street.trim();
 	}
 
 	public void setStreet(String street)
@@ -76,7 +76,7 @@ public class Costumer implements Serializable
 
 	public String getCity()
 	{
-		return city;
+		return city.trim();
 	}
 
 	public void setCity(String city)
@@ -86,7 +86,7 @@ public class Costumer implements Serializable
 
 	public String getState()
 	{
-		return state;
+		return state.trim();
 	}
 
 	public void setState(String state)
@@ -126,7 +126,7 @@ public class Costumer implements Serializable
 
 	public String getPan()
 	{
-		return pan;
+		return pan.trim();
 	}
 
 	public void setPan(String pan)

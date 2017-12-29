@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="page_header.jsp" />
 
 <!-- Page Header -->
@@ -65,6 +66,8 @@
 									<td colspan="2" style="text-align: center;"><span
 										style="font-weight: bold; padding-top: 1.25rem;">TOTAL</span></td>
 								</tr>
+								<c:if test="${fn:length(ordersList) == 0 }" ><tr><td colspan="13" style="text-align: center;"><div style="margin-top: 30px">No items found for this order</div></td></tr></c:if>	
+								<c:if test="${fn:length(ordersList) > 0 }" >
 								<c:forEach items="${orderItems}" var="orderItem"
 									varStatus="loop">
 									<tr>
@@ -72,11 +75,12 @@
 										<td colspan="7" style="text-align: center;">${orderItem.product.name}</td>
 										<td colspan="1" style="text-align: center;">${orderItem.quant}</td>
 										<td colspan="2" style="text-align: center;"><fmt:formatNumber type="currency" currencySymbol="$  "
-												value="${orderItem.product.price}" /></td>
+												value="${orderItem.price}" /></td>
 										<td colspan="2" style="text-align: center;"><fmt:formatNumber type="currency" currencySymbol="$  "
-												value="${orderItem.quant * orderItem.product.price}" /></td>
+												value="${orderItem.quant * orderItem.price}" /></td>
 									</tr>
 								</c:forEach>
+								</c:if>
 
 								<tr style="border-top: 2px solid;">
 									<td colspan="13" style="text-align: right;"><span

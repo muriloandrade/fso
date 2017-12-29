@@ -38,20 +38,23 @@
 								<tbody>
 									<tr>
 										<!-- CLIENT # -->
-										<td style="width: 200px;"><label class="form-control-label">Client #</label> <input
+										<td style="width: 200px;"><label
+											class="form-control-label">Client #</label> <input
 											id="input_cid" name="cid" placeholder="Client #"
 											maxlength="6" class="mr-3 form-control" type="text"
 											style="text-transform: uppercase;" required="required"></td>
 
 										<!-- CLIENT NAME -->
-										<td><label class="form-control-label"> </label><input id="client_name" name="client" maxlength="35"
+										<td><label class="form-control-label"> </label><input
+											id="client_name" name="client" maxlength="35"
 											class="mr-3 form-control" type="text"
 											style="background-color: white; border: 0;"
 											readonly="readonly" disabled="disabled" required="required"></td>
 
 										<!-- SHIP DATE -->
-										<td style="width: 250px;"><label class="form-control-label">Est. Ship
-												Date</label> <input name="shipdate" placeholder="Ship Date"
+										<td style="width: 250px;"><label
+											class="form-control-label">Est. Ship Date</label> <input
+											name="shipdate" placeholder="Ship Date"
 											class="mr-3 form-control" type="text" id="shipdate_picker"
 											style="text-transform: uppercase;"></td>
 									</tr>
@@ -59,7 +62,8 @@
 							</table>
 
 
-							<div class="line" style="border-bottom: 3px solid #eee; margin: 10px 0"></div>
+							<div class="line"
+								style="border-bottom: 3px solid #eee; margin: 10px 0"></div>
 
 
 							<table class="table">
@@ -82,7 +86,8 @@
 											</td>
 
 											<!-- SKU -->
-											<td><input id="input_sku_${loop.index}" name="sku_${loop.index}"
+											<td style="width: 100px;"><input
+												id="input_sku_${loop.index}" name="sku_${loop.index}"
 												placeholder="SKU" maxlength="5"
 												class="mr-3 form-control sku_field" type="text"
 												style="text-transform: uppercase;"></td>
@@ -94,40 +99,50 @@
 												disabled="disabled"></td>
 
 											<!-- QUANTIDADE -->
-											<td><input id="qty_${loop.index}" name="qty_${loop.index}" placeholder="Quantity"
+											<td style="width: 130px;"><input id="qty_${loop.index}"
+												name="qty_${loop.index}" placeholder="Quantity"
 												maxlength="999" class="mr-3 form-control quantField"
 												value="0" type="text" style="display: inherit"></td>
 
 											<!-- PRICE -->
-											<td><input id="price_${loop.index}" placeholder="Price"
+											<td style="width: 150px;"><input
+												id="price_${loop.index}" class="mr-3 form-control"
+												type="text" name="price_${loop.index}"
+												style="display: none;" value="$ 0.00" readonly="readonly">
+												
+												<input id="price_visible_${loop.index}" placeholder="Price"
 												class="mr-3 form-control" type="text"
 												style="background-color: white; text-align: center; border: 0; display: inherit;"
-												value="$ 0.00" readonly="readonly" disabled="disabled"></td>
+												value="$ 0.00" readonly="readonly" disabled="disabled">
+											</td>
 
 											<!-- ITEM TOTAL -->
-											<td><input id="item_total_${loop.index}"
-												placeholder="Item Total" class="mr-3 form-control"
-												type="text"
+											<td style="width: 150px;"><input
+												id="item_total_${loop.index}" placeholder="Item Total"
+												class="mr-3 form-control" type="text"
 												style="background-color: white; text-align: center; border: 0; display: inherit"
 												value="$ 0.00" readonly="readonly" disabled="disabled"></td>
 										</tr>
 									</c:forEach>
 									<tr>
 										<!-- + -->
-										<td id="div_addFaixa" colspan="7" style="border-bottom: 1px solid #e9ecef">
-												<a id="addFaixa" type="button" href="javascript:;"><i
-													class="fa fa-plus "></i></a>
-											</td>
+										<td id="div_addFaixa" colspan="7"
+											style="border-bottom: 1px solid #e9ecef"><a
+											id="addFaixa" type="button" href="javascript:;"><i
+												class="fa fa-plus "></i></a></td>
 									</tr>
-									
+
 									<tr>
-										<td colspan="7" style="border: none; padding: 0"><div class="line" style="border-bottom: 3px solid #eee; margin: 10px 0"></div></td>
+										<td colspan="7" style="border: none; padding: 0"><div
+												class="line"
+												style="border-bottom: 3px solid #eee; margin: 10px 0"></div></td>
 									</tr>
 
 									<tr>
 										<!-- TOTAL -->
-										<td colspan="7"  style="border: none; padding: 0 .75rem"><input id="total_field"
-											placeholder="Total" class="mr-3 form-control" type="text" name="total"
+										<td colspan="7" style="border: none; padding: 0 .75rem"><input
+											id="total_field" placeholder="Total"
+											class="mr-3 form-control" type="text" name="total"
 											style="background-color: white; text-align: right; border: 0; font-size: larger;"
 											value="TOTAL: $ 0.00" readonly="readonly"></td>
 									</tr>
