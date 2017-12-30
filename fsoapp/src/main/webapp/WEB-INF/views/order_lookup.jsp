@@ -66,8 +66,8 @@
 									<td colspan="2" style="text-align: center;"><span
 										style="font-weight: bold; padding-top: 1.25rem;">TOTAL</span></td>
 								</tr>
-								<c:if test="${fn:length(ordersList) == 0 }" ><tr><td colspan="13" style="text-align: center;"><div style="margin-top: 30px">No items found for this order</div></td></tr></c:if>	
-								<c:if test="${fn:length(ordersList) > 0 }" >
+								<c:if test="${fn:length(orderItems) == 0 }" ><tr><td colspan="13" style="text-align: center;"><div style="margin-top: 30px">No items found for this order</div></td></tr></c:if>	
+								<c:if test="${fn:length(orderItems) > 0 }" >
 								<c:forEach items="${orderItems}" var="orderItem"
 									varStatus="loop">
 									<tr>

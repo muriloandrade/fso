@@ -1,6 +1,6 @@
 ---
 applications:
- - name: GetStartedTomcat
+ - name: fso
    random-route: true
    path: target/fsoapp.war
    memory: 256M
