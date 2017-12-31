@@ -76,8 +76,8 @@
 													modelAttribute="costumer" enctype="multipart/form-data">
 													<div class="form-group">
 														<div class="input-group">
-															<input class="form-control" type="text"
-																placeholder="Client #" name="cid"
+															<input class="form-control number_only" type="text"
+																placeholder="Client number" name="cid"
 																style="padding: 0 0.5rem" required="required"
 																maxlength="6"><span class="input-group-btn">
 																<button type="submit" class="btn btn-primary"
@@ -105,8 +105,8 @@
 													modelAttribute="costumer" enctype="multipart/form-data">
 													<div class="form-group">
 														<div class="input-group">
-															<input class="form-control" type="text"
-																placeholder="Client #" name="cid"
+															<input class="form-control number_only" type="text"
+																placeholder="Client number" name="cid"
 																style="padding: 0.1rem 0.5rem" required="required"
 																maxlength="6"><span class="input-group-btn">
 																<button type="submit" class="btn btn-primary"
@@ -237,8 +237,8 @@
 													modelAttribute="product" enctype="multipart/form-data">
 													<div class="form-group">
 														<div class="input-group">
-															<input class="form-control" type="text"
-																placeholder="Client #" name="cid"
+															<input class="form-control number_only" type="text"
+																placeholder="Client number" name="cid"
 																style="padding: 0.1rem 0.5rem" required="required"
 																maxlength="6"><span class="input-group-btn">
 																<button type="submit" class="btn btn-primary"
@@ -273,8 +273,8 @@
 													 enctype="multipart/form-data">
 													<div class="form-group">
 														<div class="input-group">
-															<input class="form-control" type="text"
-																placeholder="Order #" name="oid"
+															<input class="form-control number_only" type="text"
+																placeholder="Order number" name="oid"
 																style="padding: 0.1rem 0.5rem" required="required"
 																maxlength="6"><span class="input-group-btn">
 																<button type="submit" class="btn btn-primary"
@@ -307,8 +307,8 @@
 													modelAttribute="product" enctype="multipart/form-data">
 													<div class="form-group">
 														<div class="input-group">
-															<input class="form-control" type="text"
-																placeholder="Order #" name="oid"
+															<input class="form-control number_only" type="text"
+																placeholder="Order number" name="oid"
 																style="padding: 0.1rem 0.5rem" required="required"
 																maxlength="6"><span class="input-group-btn">
 																<button type="submit" class="btn btn-primary"
